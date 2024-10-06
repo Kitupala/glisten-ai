@@ -120,14 +120,16 @@ export default function AnimatedContent({
             {item.icon && icons[item.icon]}
           </div>
 
-          <div
-            className={clsx(
-              "signal-line last:hidden",
-              index >= Math.floor(slice.primary.integration_icons.length / 2)
-                ? "rotate-180"
-                : "rotate-0",
-            )}
-          />
+          {index !== slice.primary.integration_icons.length - 1 && (
+            <div
+              className={clsx(
+                "signal-line",
+                index >= Math.floor(slice.primary.integration_icons.length / 2)
+                  ? "rotate-180"
+                  : "rotate-0",
+              )}
+            />
+          )}
         </React.Fragment>
       ))}
     </div>
